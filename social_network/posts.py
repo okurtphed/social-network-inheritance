@@ -24,7 +24,7 @@ class TextPost(Post):
     def __str__(self):
         #return '@{}: "{}"\n\t{}'.format(self.user, self.text,self.timestamp.strftime("%A, %b %d, %Y"))
     
-        return f'@{self.user}: "{self.text}"\n\t{self.timestamp.strftime("%A, %b %d, %Y")}'
+        return '@{}: "{}"\n\t{}'.format(self.user, self.text, self.timestamp.strftime("%A, %b %d, %Y"))
 
 
 class PicturePost(Post):
@@ -37,7 +37,7 @@ class PicturePost(Post):
         
 
     def __str__(self):
-        return f'@{self.user}: "{self.text}"\n\t{self.image_url}\n\t{self.timestamp.strftime("%A, %b %d, %Y")}'
+        return '@{}: "{}"\n\t{}\n\t{}'.format(self.user, self.text, self.image_url, self.timestamp.strftime("%A, %b %d, %Y"))
 
 
 class CheckInPost(Post):
@@ -48,7 +48,7 @@ class CheckInPost(Post):
         self.timestamp = timestamp
 
     def __str__(self):
-        return f'@{self.user.first_name} Checked In: "{self.text}"\n\t{self.latitude}, {self.longitude}\n\t{self.timestamp.strftime("%A, %b %d, %Y")}'
+        return '@{} Checked In: "{}"\n\t{}, {}\n\t{}'.format(self.user.first_name, self.text, self.latitude, self.longitude, self.timestamp.strftime("%A, %b %d, %Y"))
 
     
     
